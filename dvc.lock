@@ -10,6 +10,7 @@ stages:
     params:
       params.yaml:
         index_col: customer_id
+        retrain: true
     outs:
     - path: data/initial_data.csv
       hash: md5
@@ -35,22 +36,23 @@ stages:
         auto_class_weights: Balanced
         index_col: customer_id
         one_hot_drop: if_binary
+        retrain: true
         target_col: target
     outs:
     - path: models/fitted_model.pkl
       hash: md5
-      md5: 318ee4effd7b27c2832f937691342ad0
+      md5: 7efa20af700ed58c8e1b7c9b24920d02
       size: 1103250
       cloud:
         my_mle_storage:
-          etag: 318ee4effd7b27c2832f937691342ad0
-          version_id: 00064E3CAEFAF9A4
+          etag: 7efa20af700ed58c8e1b7c9b24920d02
+          version_id: 00064E3F6F96CC60
   evaluate_model:
     cmd: python scripts/evaluate.py
     deps:
     - path: models/fitted_model.pkl
       hash: md5
-      md5: 318ee4effd7b27c2832f937691342ad0
+      md5: 7efa20af700ed58c8e1b7c9b24920d02
       size: 1103250
     - path: scripts/evaluate.py
       hash: md5
@@ -64,13 +66,14 @@ stages:
         - roc_auc
         n_jobs: -1
         n_splits: 5
+        retrain: true
         target_col: target
     outs:
     - path: cv_results/cv_res.json
       hash: md5
-      md5: d57ca97b73caa1c0638d52d7a310da54
+      md5: 39504fc2fedeeaa063b0ffdabd122ff7
       size: 95
       cloud:
         my_mle_storage:
-          etag: d57ca97b73caa1c0638d52d7a310da54
-          version_id: 00064E3CAEFB928C
+          etag: 39504fc2fedeeaa063b0ffdabd122ff7
+          version_id: 00064E3F6F973D5E

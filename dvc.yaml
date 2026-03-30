@@ -5,6 +5,7 @@ stages:
     deps:
       - scripts/data.py
     params:
+      - retrain
       - index_col
     outs:
       - data/initial_data.csv
@@ -14,6 +15,7 @@ stages:
       - data/initial_data.csv
       - scripts/fit.py
     params:
+      - retrain
       - index_col
       - target_col
       - one_hot_drop
@@ -26,6 +28,7 @@ stages:
       - models/fitted_model.pkl
       - scripts/evaluate.py
     params:
+      - retrain
       - index_col
       - target_col
       - n_splits
