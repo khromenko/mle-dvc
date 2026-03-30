@@ -35,6 +35,8 @@ def get_data():
     data = pd.read_sql('select * from clean_users_churn', conn, index_col=params['index_col'])
     conn.dispose()
 
+    data = data.drop(columns=['id', 'end_date', 'begin_date'])
+
     # 3.4 — сохранение результата шага
     os.makedirs('data', exist_ok=True)
     data.to_csv('data/initial_data.csv', index=None)
