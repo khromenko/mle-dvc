@@ -1,6 +1,6 @@
 [core]
     remote = my_mle_storage
 ['remote "my_mle_storage"']
-    url = s3://s3-student-mle-20260306-f5465b0629-freetrack
+    url = s3://s3-student-mle-20260306-f5465b0629-freetrack/Sprint-1/Study
     endpointurl = https://storage.yandexcloud.net
     version_aware = true
