@@ -14,23 +14,23 @@ stages:
     outs:
     - path: data/initial_data.csv
       hash: md5
-      md5: 58bc0d332ec7c00d465824e359accb8a
-      size: 692246
+      md5: 5f8c4bba05ef15dfa2a0e470b316f7e3
+      size: 685226
       cloud:
         my_mle_storage:
-          etag: 58bc0d332ec7c00d465824e359accb8a
-          version_id: 00064E413F50E25D
+          etag: 5f8c4bba05ef15dfa2a0e470b316f7e3
+          version_id: 00064EF61602A467
   fit_model:
     cmd: python scripts/fit.py
     deps:
     - path: data/initial_data.csv
       hash: md5
-      md5: 58bc0d332ec7c00d465824e359accb8a
-      size: 692246
+      md5: 5f8c4bba05ef15dfa2a0e470b316f7e3
+      size: 685226
     - path: scripts/fit.py
       hash: md5
-      md5: f38ed5edbbfbb5d69924fbd9367a69af
-      size: 2716
+      md5: 1a32ea5cef5a418a9b6eeb0d31c368d1
+      size: 2704
     params:
       params.yaml:
         auto_class_weights: Balanced
@@ -41,23 +41,23 @@ stages:
     outs:
     - path: models/fitted_model.pkl
       hash: md5
-      md5: c3980268c423b8e408e2a0e512a63fd4
-      size: 1102169
+      md5: c720ac318cbb355ef478cf94e87d2543
+      size: 1097672
       cloud:
         my_mle_storage:
-          etag: c3980268c423b8e408e2a0e512a63fd4
-          version_id: 00064EF44AE2C197
+          etag: c720ac318cbb355ef478cf94e87d2543
+          version_id: 00064EF61601E488
   evaluate_model:
     cmd: python scripts/evaluate.py
     deps:
     - path: models/fitted_model.pkl
       hash: md5
-      md5: c3980268c423b8e408e2a0e512a63fd4
-      size: 1102169
+      md5: c720ac318cbb355ef478cf94e87d2543
+      size: 1097672
     - path: scripts/evaluate.py
       hash: md5
-      md5: aa51ff9f3d8f163a707ce865866fac88
-      size: 1781
+      md5: 15916b6fa0fae567e7f58bc1156862fb
+      size: 1767
     params:
       params.yaml:
         index_col: customer_id
@@ -71,9 +71,9 @@ stages:
     outs:
     - path: cv_results/cv_res.json
       hash: md5
-      md5: ce1355725c77dfd1d8b75eed789bc574
+      md5: ebb4d9841863a5b72de3e00aa4d1559c
       size: 98
       cloud:
         my_mle_storage:
-          etag: ce1355725c77dfd1d8b75eed789bc574
-          version_id: 00064EF44AE1E65B
+          etag: ebb4d9841863a5b72de3e00aa4d1559c
+          version_id: 00064EF616027DC1

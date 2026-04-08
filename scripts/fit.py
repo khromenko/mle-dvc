@@ -20,7 +20,7 @@ def fit_model():
 
     # загрузите результат предыдущего шага: initial_data.csv
     data = pd.read_csv('data/initial_data.csv')
-    X = data.drop(columns=[params['target_col'], 'end_date'])
+    X = data.drop(columns=[params['target_col']])
     y = data[params['target_col']]
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=18, stratify=y)
